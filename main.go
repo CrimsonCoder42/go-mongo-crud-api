@@ -8,6 +8,8 @@ import (
 	"gopkg.in/mgo.v2"
 )
 
+// Older version uses gopkg but mongo has it's own package https://www.mongodb.com/docs/drivers/go/current/
+
 func main() {
 
 	r := httprouter.New()
@@ -25,7 +27,7 @@ func main() {
 
 func getSession() *mgo.Session {
 	// Connect to our local mongo
-	s, err := mgo.Dial("mongodb://localhost:27107")
+	s, err := mgo.Dial("mongodb://localhost:27017")
 
 	// Check if connection error, is mongo running?
 	if err != nil {
